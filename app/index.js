@@ -1,5 +1,11 @@
 var angular = require('angular');
 
-var angularModule = require('./angular-module')(angular);
+//require('oclazyload');
 
-require('./controller')(angularModule);
+var angularModule = angular.module('heitorpack', [
+  require('angular-ui-router')
+]);
+
+require('./routes')(angularModule);
+
+require('./controllers/home.controller')(angularModule);
