@@ -1,0 +1,14 @@
+{
+  "name": "heitorpack",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress -c -d --content-base build --hot --inline"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}
