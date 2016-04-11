@@ -3,8 +3,8 @@ module.exports = function (angularModule) {
 
   function homeConstructor ($scope) {
     var vm = this;
-    
-    vm.titulo = 'Teste de live reload';
+
+    vm.title = 'Home';
   }
 
   angularModule.controller('homeController', homeConstructor);

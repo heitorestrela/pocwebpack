@@ -3,17 +3,17 @@ var webpack = require('webpack');
 var config = {
   entry: {
     app: './app/index.js',
-    vendor: ['angular']
+    vendor: ['angular', 'angular-ui-router']
   },
   output: {
     path: './build',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    chunkFilename: '[hash].[name].bundle.js'
   },
   module: {
     loaders: [{
       test: /\.html$/,
-      loader: 'raw',
-      exclude: /node_modules/
+      loader: 'raw'
     }]
   },
   plugins: [
