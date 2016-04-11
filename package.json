@@ -3,7 +3,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --progress -c -d --content-base build --hot --inline",
-    "build": "webpack --progress --devtools --sourcemap"
+    "build": "webpack --progress --devtools --sourcemap -p"
   },
   "devDependencies": {
     "raw-loader": "^0.5.1",
