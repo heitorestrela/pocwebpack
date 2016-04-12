@@ -14,6 +14,9 @@ var config = {
     loaders: [{
       test: /\.html$/,
       loader: 'raw'
+    }, {
+      test: /\.js$/,
+      loader: 'ng-annotate'
     }]
   },
   plugins: [

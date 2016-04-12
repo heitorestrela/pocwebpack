@@ -6,6 +6,7 @@
     "build": "webpack --progress --devtools --sourcemap -p"
   },
   "devDependencies": {
+    "ng-annotate-loader": "^0.1.0",
     "raw-loader": "^0.5.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
