@@ -1,9 +1,11 @@
-module.exports = function (angularModule) {
-  function contactConstructor ($scope) {
-    var vm = this;
+'use strict';
 
-    vm.title = 'Contact';
+class ContactController {
+  constructor() {
+    this.title = 'Contact';
   }
+}
 
-  angularModule.controller('contactController', contactConstructor);
-};
+export default angularModule => {
+  angularModule.controller('contactController', ContactController);
+}

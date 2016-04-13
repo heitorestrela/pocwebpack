@@ -1,4 +1,6 @@
-module.exports = function(angular, angularModule) {
+'use strict';
+
+export default (angular, angularModule) => {
 
   function configConstructor($stateProvider, $locationProvider, $urlRouterProvider) {
     $stateProvider
@@ -6,29 +8,25 @@ module.exports = function(angular, angularModule) {
         url: '/home',
         controller: 'homeController',
         controllerAs: 'home',
-        templateProvider: function($q) {
-          var deferred = $q.defer();
-
-          require.ensure([], function() {
-            var template = require('./institutional/home/home.template.html');
-            deferred.resolve(template);
-          }, 'home');
-
-          return deferred.promise;
+        templateProvider: ($q) => {
+          return $q((resolve) => {
+            require.ensure([], () => {
+              let template = require('./institutional/home/home.template.html');
+              resolve(template);
+            }, 'home');
+          });
         },
         resolve: {
-          load: function($q, $ocLazyLoad) {
-            var deferred = $q.defer();
-
-            require.ensure([], function() {
-              var contactModule = require('./institutional/home/home.module')(angular);
-              $ocLazyLoad.load({
-                name: 'home'
-              });
-              deferred.resolve(module);
-            }, 'home');
-
-            return deferred.promise;
+          load: ($q, $ocLazyLoad) => {
+            return $q((resolve) => {
+              require.ensure([], () => {
+                let homeModule = require('./institutional/home/home.module').default(angular);
+                $ocLazyLoad.load({
+                  name: 'home'
+                });
+                resolve(homeModule);
+              }, 'home');
+            });
           }
         }
       })
@@ -36,29 +34,25 @@ module.exports = function(angular, angularModule) {
         url: '/contact',
         controller: 'contactController',
         controllerAs: 'contact',
-        templateProvider: function($q) {
-          var deferred = $q.defer();
-
-          require.ensure([], function() {
-            var template = require('./institutional/contact/contact.template.html');
-            deferred.resolve(template);
-          }, 'contact');
-
-          return deferred.promise;
+        templateProvider: ($q) => {
+          return $q((resolve) => {
+            require.ensure([], () => {
+              let template = require('./institutional/contact/contact.template.html');
+              resolve(template);
+            }, 'contact');
+          });
         },
         resolve: {
-          load: function($q, $ocLazyLoad) {
-            var deferred = $q.defer();
-
-            require.ensure([], function() {
-              var contactModule = require('./institutional/contact/contact.module')(angular);
-              $ocLazyLoad.load({
-                name: 'contact'
-              });
-              deferred.resolve(module);
-            }, 'contact');
-
-            return deferred.promise;
+          load: ($q, $ocLazyLoad) => {
+            return $q((resolve) => {
+              require.ensure([], () => {
+                let contactModule = require('./institutional/contact/contact.module').default(angular);
+                $ocLazyLoad.load({
+                  name: 'contact'
+                });
+                resolve(contactModule);
+              }, 'contact');
+            });
           }
         }
       });
@@ -67,4 +61,4 @@ module.exports = function(angular, angularModule) {
   }
 
   angularModule.config(configConstructor);
-};
+}

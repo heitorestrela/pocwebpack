@@ -1,4 +1,6 @@
-module.exports = function (angular) {
-  var contactModule = angular.module('contact', []);
-  require('./contact.controller')(contactModule);
-};
+'use strict';
+
+export default Angular => {
+  let contactModule = Angular.module('contact', []);
+  require('./contact.controller').default(contactModule);
+}

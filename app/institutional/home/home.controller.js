@@ -1,9 +1,11 @@
-module.exports = function (angularModule) {
-  function homeConstructor ($scope) {
-    var vm = this;
+'use strict';
 
-    vm.title = 'Home';
+class HomeController {
+  constructor() {
+    this.title = 'Home';
   }
+}
 
-  angularModule.controller('homeController', homeConstructor);
-};
+export default angularModule => {
+  angularModule.controller('homeController', HomeController);
+}

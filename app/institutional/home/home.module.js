@@ -1,4 +1,6 @@
-module.exports = function (angular) {
-  var homeModule = angular.module('home', []);
-  require('./home.controller')(homeModule);
-};
+'use strict';
+
+export default Angular => {
+  let homeModule = Angular.module('home', []);
+  require('./home.controller').default(homeModule);
+}

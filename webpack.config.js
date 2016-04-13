@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var config = {
   entry: {
     app: './app/index.js',
-    vendor: ['angular', 'angular-ui-router']
+    vendor: ['angular', 'angular-ui-router', 'oclazyload']
   },
   output: {
     path: './build',
@@ -13,10 +13,12 @@ var config = {
   module: {
     loaders: [{
       test: /\.html$/,
-      loader: 'raw'
+      loader: 'raw',
+      exclude: /node_modules/
     }, {
       test: /\.js$/,
-      loader: 'ng-annotate'
+      loader: 'ng-annotate!babel',
+      exclude: /node_modules/
     }]
   },
   plugins: [
