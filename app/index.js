@@ -1,14 +1,17 @@
 'use strict';
 
-var angular = require('angular');
-
-require('oclazyload');
+import angular from 'angular';
+import oclazyload from 'oclazyload';
+import uirouter from 'angular-ui-router';
+import routes from './routes';
 
 var angularModule = angular.module('heitorpack', [
-  require('angular-ui-router'),
+  uirouter,
   'oc.lazyLoad'
 ]);
 
-require('./routes').default(angular, angularModule);
+routes(angular, angularModule);
 
-angular.bootstrap(document, [angularModule.name], { strictDi: true });
+angular.bootstrap(document, [angularModule.name], {
+  strictDi: true
+});
