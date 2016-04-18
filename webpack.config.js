@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+var webpack = require('webpack'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
   entry: {
@@ -42,7 +43,8 @@ var config = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js'
-    })
+    }),
+    new ExtractTextPlugin("styles.css")
   ]
 };
 
