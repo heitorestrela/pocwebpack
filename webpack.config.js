@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   entry: {
@@ -44,7 +45,11 @@ var config = {
       name: 'vendor',
       filename: 'vendor.bundle.js'
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("styles.css"),
+    new HtmlWebpackPlugin({
+      template: './app/index.ejs',
+      filename: 'index.html'
+    })
   ]
 };
 
