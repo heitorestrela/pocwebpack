@@ -1,6 +1,7 @@
 var webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var config = {
   entry: {
@@ -49,7 +50,8 @@ var config = {
     new HtmlWebpackPlugin({
       template: './app/index.ejs',
       filename: 'index.html'
-    })
+    }),
+    new CleanWebpackPlugin(['build'])
   ]
 };
 
